@@ -1,7 +1,7 @@
 //adding the dropdown information 
 
 function buildMeta(sample){
-  d3.json('../data/samples.json').then((data)=>{
+  d3.json('samples.json').then((data)=>{
       var meta_sample = data.metadata;
       var results = meta_sample.filter(sampleObject => sampleObject.id==sample);
       var result = results[0];
@@ -16,7 +16,7 @@ function buildMeta(sample){
 //Creating Horizaontal Bar Chart
 
 function buildCharts(sample){
-  d3.json('../data/samples.json').then((data)=>{
+  d3.json('samples.json').then((data)=>{
       var samples = data.samples;
       var results = samples.filter(sampleObject => sampleObject.id==sample);
       var result = results[0];
@@ -59,7 +59,7 @@ console.log(samples[0].otu_ids)
 
 function update(){
 var dropdown=d3.selectAll('#selDataset');
-d3.json('../data/samples.json').then((data)=>{
+d3.json('samples.json').then((data)=>{
   var sample_names = data.names
 sample_names.forEach((name)=>{
 dropdown.append('option').text(name).property('value', name);
